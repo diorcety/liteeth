@@ -42,6 +42,7 @@ class BenchSoC(SoCCore):
         self.ethphy = LiteEthPHYRGMII(
             clock_pads = self.platform.request("eth_clocks"),
             pads       = self.platform.request("eth"),
+            clk_freq   = sys_clk_freq,
             with_hw_init_reset = False)
         self.add_etherbone(phy=self.ethphy, buffer_depth=255)
 
